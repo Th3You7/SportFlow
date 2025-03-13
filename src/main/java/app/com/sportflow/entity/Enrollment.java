@@ -3,7 +3,6 @@ package app.com.sportflow.entity;
 import app.com.sportflow.enums.EnrollmentStatus;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,7 +19,7 @@ public class Enrollment {
 
     @ManyToOne
     @JoinColumn(name = "sessionId")
-    private Session session;
+    private TrainingSession session;
 
     public Enrollment() {}
 
@@ -56,11 +55,11 @@ public class Enrollment {
         this.member = member;
     }
 
-    public Session getSession() {
+    public TrainingSession getSession() {
         return session;
     }
 
-    public void setSession(Session session) {
+    public void setSession(TrainingSession session) {
         this.session = session;
     }
 }

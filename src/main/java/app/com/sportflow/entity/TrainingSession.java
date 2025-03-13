@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-public class Session {
+public class TrainingSession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long sessionId;
@@ -25,7 +25,7 @@ public class Session {
     @OneToMany(mappedBy = "session")
     private Set<Enrollment> enrollments;
 
-    public Session() { }
+    public TrainingSession() { }
 
     public long getSessionId() {
         return sessionId;
