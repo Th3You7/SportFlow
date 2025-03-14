@@ -1,14 +1,16 @@
 package app.com.sportflow.dao;
 
 import app.com.sportflow.config.HibernateConfig;
+import app.com.sportflow.dto.TrainingSessionDTO;
 import app.com.sportflow.entity.TrainingSession;
+import app.com.sportflow.mapper.TrainingSessionMapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class SessionDAO {
+public class TrainingSessionDAO {
 
     public TrainingSession getSession (long id) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()) {
@@ -40,10 +42,12 @@ public class SessionDAO {
         }
     }
 
-    public Set<TrainingSession> getAllSessions() {
+    public Set<TrainingSessionDTO> getAllSessions() {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("From TrainingSession ", TrainingSession.class)
-                    .getResultStream().collect(Collectors.toSet());
+                    .getResultStream()
+                    .map(TrainingSessionMapper::toTrainingSessionDTO)
+                    .collect(Collectors.toSet());
         }
     }
 

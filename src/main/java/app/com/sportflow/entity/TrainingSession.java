@@ -13,17 +13,14 @@ public class TrainingSession {
     private long sessionId;
     private String sessionName;
     private String sessionDescription;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
     private ClubDomain domain;
-
-
     @ManyToOne
     @JoinColumn(name = "trainerId")
     private Trainer trainer;
-
     @OneToMany(mappedBy = "session")
     private Set<Enrollment> enrollments;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public TrainingSession() { }
 
