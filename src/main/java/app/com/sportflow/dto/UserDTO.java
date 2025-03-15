@@ -3,6 +3,7 @@ package app.com.sportflow.dto;
 import app.com.sportflow.enums.UserRole;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class UserDTO {
     private long userId;
@@ -10,6 +11,7 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
+    private LocalDateTime updatedAt;
     private UserRole role;
 
     public UserDTO() {}
@@ -61,6 +63,14 @@ public class UserDTO {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public UserRole getRole() {

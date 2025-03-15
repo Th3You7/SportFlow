@@ -1,7 +1,9 @@
 package app.com.sportflow.dao;
 
 import app.com.sportflow.config.HibernateConfig;
+import app.com.sportflow.dto.EnrollmentDTO;
 import app.com.sportflow.entity.Enrollment;
+import app.com.sportflow.mapper.EnrollmentMapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -21,7 +23,6 @@ public class EnrollmentDAO {
             tx.commit();
         }
     }
-
     public void updateEnrollment(Enrollment enrollment) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction tx = session.beginTransaction();
@@ -29,20 +30,19 @@ public class EnrollmentDAO {
             tx.commit();
         }
     }
-
-    public Set<Enrollment> getAllEnrollments() {
+    public Set<EnrollmentDTO> getAllEnrollments() {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("FROM Enrollment", Enrollment.class)
-                    .getResultStream().collect(Collectors.toSet());
+                    .getResultStream()
+                    .map(EnrollmentMapper::toEnrollmentDTO)
+                    .collect(Collectors.toSet());
         }
     }
-
     public long getAllEnrollmentsCount() {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("select count(e) from Enrollment e", Long.class)
                     .uniqueResult();
         }
     }
-
 
 }
