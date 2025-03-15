@@ -30,6 +30,7 @@ public class UserDAO {
         }
     }
 
+
     public void saveUser(User user) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction tx = session.beginTransaction();
