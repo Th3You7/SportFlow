@@ -21,9 +21,9 @@ public class UserService {
     public void register(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String birthdate = req.getParameter("birthdate");
+        String firstName = req.getParameter("fname");
+        String lastName = req.getParameter("lname");
+        String birthdate = req.getParameter("bdate");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
