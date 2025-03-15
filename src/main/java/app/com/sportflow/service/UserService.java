@@ -5,6 +5,8 @@ import app.com.sportflow.dto.UserDTO;
 import app.com.sportflow.entity.Member;
 import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.entity.User;
+import app.com.sportflow.exception.DuplicateEmailException;
+import app.com.sportflow.exception.UserEmailNoExistException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -36,6 +38,9 @@ public class UserService {
             userDAO.saveUser(user);
             session.setAttribute("message", "you have registered successfully! Try to log in");
             session.setAttribute("type", "success");
+        }catch (DuplicateEmailException e){
+            session.setAttribute("message", e.getMessage());
+            session.setAttribute("type", "error");
         }catch (Exception e) {
             session.setAttribute("message", "Something went wrong");
             session.setAttribute("type", "error");
@@ -57,6 +62,9 @@ public class UserService {
                 request.getRequestDispatcher("WEB-INF/views/login.jsp");
             }
             response.sendRedirect( "/");
+        }catch (UserEmailNoExistException e){
+            session.setAttribute("message", e.getMessage());
+            session.setAttribute("type", "error");
         }catch (Exception e) {
             session.setAttribute("message", "Something went wrong");
             session.setAttribute("type", "error");
@@ -101,7 +109,10 @@ public class UserService {
         try {
             session.setAttribute("message", "User edited successfully");
             session.setAttribute("type", "success");
-        } catch (Exception e) {
+        } catch (DuplicateEmailException e){
+            session.setAttribute("message", e.getMessage());
+            session.setAttribute("type", "error");
+        }catch (Exception e) {
             session.setAttribute("message", "Something went wrong");
             session.setAttribute("type", "error");
         }finally {
@@ -122,6 +133,9 @@ public class UserService {
             userDAO.saveUser(trainer);
             session.setAttribute("message", "Trainer created successfully");
             session.setAttribute("type", "success");
+        }catch (DuplicateEmailException e){
+            session.setAttribute("message", e.getMessage());
+            session.setAttribute("type", "error");
         }catch (Exception e){
             session.setAttribute("message", "Something went wrong");
             session.setAttribute("type", "success");
