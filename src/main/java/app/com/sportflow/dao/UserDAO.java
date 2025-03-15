@@ -1,5 +1,7 @@
 package app.com.sportflow.dao;
 
+import app.com.sportflow.exception.DuplicateEmailException;
+import app.com.sportflow.exception.UserEmailNoExistException;
 import app.com.sportflow.mapper.UserMapper;
 import app.com.sportflow.config.HibernateConfig;
 import app.com.sportflow.dto.UserDTO;
@@ -14,6 +16,9 @@ public class UserDAO {
 
     public UserDTO getUser(String email, String password) {
        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+           if(!isEmailExist(session, email)){
+               throw new UserEmailNoExistException(email);
+           }
            User user = session.createQuery("FROM User WHERE email = :email AND password = :password", User.class)
                    .setParameter("email", email)
                    .setParameter("password", password)
@@ -22,7 +27,20 @@ public class UserDAO {
        }
     }
 
+    public UserDTO getUserByEmail(String email) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            User user = session.createQuery("From User WHERE email = :email", User.class)
+                            .setParameter("email", email)
+                            .uniqueResult();
 
+            return UserMapper.toUserDTO(user);
+        }
+    }
+
+    public boolean isEmailExist(Session session, String email) {
+        return session.createQuery("select count(*) from User u where u.email = :email", Long.class)
+                .setParameter("email", email).uniqueResult() > 0;
+    }
 
     public User getUserById(long id) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
@@ -30,10 +48,13 @@ public class UserDAO {
         }
     }
 
-
     public void saveUser(User user) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction tx = session.beginTransaction();
+            if(isEmailExist(session, user.getEmail())) {
+                tx.rollback();
+                throw new DuplicateEmailException("Email " + user.getEmail() + " already exists");
+            }
             session.persist(user);
             tx.commit();
         }
@@ -42,6 +63,10 @@ public class UserDAO {
     public void updateUser(User user) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction tx = session.beginTransaction();
+            if(isEmailExist(session, user.getEmail())) {
+                tx.rollback();
+                throw new DuplicateEmailException("Email " + user.getEmail() + " already exists");
+            }
             session.merge(user);
             tx.commit();
         }
