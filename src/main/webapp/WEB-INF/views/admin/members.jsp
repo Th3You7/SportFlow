@@ -20,7 +20,7 @@
         <h1 class="text-2xl font-bold text-gray-900 mb-6">Members List</h1>
         <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
             <a href="/user-form?type=MEMBER" >
-                Add Trainer
+                Add Member
             </a>
         </button>
     </div>

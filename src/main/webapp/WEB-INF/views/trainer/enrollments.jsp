@@ -1,15 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: pc
   Date: 3/15/2025
-  Time: 11:03 PM
+  Time: 11:24 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin</title>
+    <title>Trainer</title>
     <script async defer src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-50">
@@ -27,6 +27,8 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+
 
             </tr>
             </thead>
@@ -61,6 +63,11 @@
                       <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                         <c:out value="${enrollment.enrollmentDate}" />
                       </span>
+                    </td>
+                    <!-- Actions-->
+                    <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
+                        <a href="/enrollment/accept?id=<c:out value="${enrollment.userId}" />">Delete</a>
+                        <a class="ml-3" href=/enrollment/cancel?id=<c:out value="${enrollment.userId}" />">Edit</a>
                     </td>
                 </tr>
             </c:forEach>
