@@ -5,6 +5,7 @@ import app.com.sportflow.dto.UserDTO;
 import app.com.sportflow.entity.Member;
 import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.entity.User;
+import app.com.sportflow.enums.UserRole;
 import app.com.sportflow.exception.DuplicateEmailException;
 import app.com.sportflow.exception.UserEmailNoExistException;
 import jakarta.servlet.ServletException;
@@ -33,6 +34,8 @@ public class UserService {
         user.setEmail(email);
         user.setPassword(password);
         user.setBirthDate(LocalDate.parse(birthdate));
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
 
         try {
             userDAO.saveUser(user);
@@ -45,31 +48,46 @@ public class UserService {
             session.setAttribute("message", "Something went wrong");
             session.setAttribute("type", "error");
         }finally {
-            res.sendRedirect("/login");
+            res.sendRedirect("login.jsp");
 
         }
 
     }
-    public void login(HttpServletRequest request, HttpServletResponse response) {
+    public void registerPage(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/views/auth/register.jsp").forward(req, res);
+    }
+    public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
         try {
             UserDTO userDTO = userDAO.getUser(email, password);
-            if (userDTO != null) {
+            if (userDTO == null) {
                 session.setAttribute("message", "Email or password is incorrect");
                 session.setAttribute("type", "error");
-                request.getRequestDispatcher("WEB-INF/views/login.jsp");
+                response.sendRedirect("/auth/login.jsp");
+            }else{
+                if(userDTO.getRole().equals(UserRole.MEMBER)) {
+                    response.sendRedirect( "/user/home.jsp");
+                }else {
+                    response.sendRedirect( "/user/dashboard.jsp");
+                }
             }
-            response.sendRedirect( "/");
+
         }catch (UserEmailNoExistException e){
             session.setAttribute("message", e.getMessage());
             session.setAttribute("type", "error");
+            response.sendRedirect( "/auth/login.jsp");
+
         }catch (Exception e) {
-            session.setAttribute("message", "Something went wrong");
+            session.setAttribute("message", "Email or password is incorrect");
             session.setAttribute("type", "error");
-            request.getRequestDispatcher("WEB-INF/views/login.jsp");
+            response.sendRedirect("/auth/login.jsp");
         }
+    }
+    public void loginPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       request.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(request, response);
+
     }
     public void logout(HttpServletRequest request, HttpServletResponse response) {
 
@@ -127,7 +145,7 @@ public class UserService {
         trainer.setEmail(req.getParameter("email"));
         trainer.setPassword("12345"); // default password
         trainer.setBirthDate(LocalDate.parse(req.getParameter("birthDate")));
-        trainer.setCreatedAt(LocalDate.now());
+        trainer.setCreatedAt(LocalDateTime.now());
         trainer.setUpdatedAt(LocalDateTime.now());
         try {
             userDAO.saveUser(trainer);
