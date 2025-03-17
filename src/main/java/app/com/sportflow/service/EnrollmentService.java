@@ -2,6 +2,7 @@ package app.com.sportflow.service;
 
 import app.com.sportflow.dao.EnrollmentDAO;
 import app.com.sportflow.dao.TrainingSessionDAO;
+import app.com.sportflow.dto.TrainingSessionDTO;
 import app.com.sportflow.entity.Enrollment;
 import app.com.sportflow.entity.Member;
 import app.com.sportflow.entity.TrainingSession;
@@ -29,7 +30,7 @@ public class EnrollmentService {
         enrollment.setMember(user);
 
         try {
-            TrainingSession trainingSession = trainingSessionDAO.getSession(trainingSessionId);
+            TrainingSession trainingSession = trainingSessionDAO.getSessionById(trainingSessionId);
             if (trainingSession != null) {
                 enrollment.setSession(trainingSession);
                 enrollmentDAO.saveEnrollment(enrollment);
@@ -80,4 +81,5 @@ public class EnrollmentService {
             res.sendRedirect("/mysessions");
         }
     }
+
 }

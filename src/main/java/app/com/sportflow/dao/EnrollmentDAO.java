@@ -38,11 +38,30 @@ public class EnrollmentDAO {
                     .collect(Collectors.toSet());
         }
     }
+
+    public Set<EnrollmentDTO> getEnrollmentsByTrainer(long trainerId) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.createQuery("from Enrollment where session.trainer.userId = :trainerId", Enrollment.class)
+                    .setParameter("trainerId", trainerId)
+                    .getResultStream()
+                    .map(EnrollmentMapper::toEnrollmentDTO)
+                    .collect(Collectors.toSet());
+        }
+    }
+
+    public long getEnrollmentsCountByTrainer(long trainerId) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.createQuery("select count(*) from Enrollment where session.trainer.userId = :trainerId", Long.class)
+                    .setParameter("trainerId", trainerId)
+                    .uniqueResult();
+        }
+    }
     public long getAllEnrollmentsCount() {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("select count(e) from Enrollment e", Long.class)
                     .uniqueResult();
         }
     }
+
 
 }

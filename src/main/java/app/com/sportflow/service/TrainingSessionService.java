@@ -67,7 +67,7 @@ public class TrainingSessionService {
         long trainingSessionId = Long.parseLong(req.getParameter("trainingSessionId"));
         HttpSession session = req.getSession(false);
         try {
-            TrainingSession trainingSession = trainingSessionDAO.getSession(trainingSessionId);
+            TrainingSession trainingSession = trainingSessionDAO.getSessionById(trainingSessionId);
             trainingSessionDAO.deleteSession(trainingSession);
             session.setAttribute("message", "Training Session deleted successfully");
             session.setAttribute("type", "success");
@@ -83,7 +83,7 @@ public class TrainingSessionService {
         HttpSession session = req.getSession(false);
 
         try {
-            TrainingSession trainingSession = trainingSessionDAO.getSession(trainingSessionId);
+            TrainingSession trainingSession = trainingSessionDAO.getSessionById(trainingSessionId);
             trainingSession.setSessionName(req.getParameter("sessionName"));
             trainingSession.setSessionDescription(req.getParameter("sessionDescription"));
             trainingSession.setDomain(ClubDomain.valueOf(req.getParameter("domain")));

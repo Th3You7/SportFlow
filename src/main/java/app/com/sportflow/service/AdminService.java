@@ -175,13 +175,13 @@ public class AdminService {
     // Sessions func
     public void getAllTrainingSessions(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.setAttribute("trainingSessions", trainingSessionDAO.getAllSessionsCount());
-        req.getRequestDispatcher("/WEB-INF/views/admin/sessions.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/views/common/sessions.jsp").forward(req, res);
     }
 
     // Enrollments funcs
     public void getAllEnrollments(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.setAttribute("enrollments", enrollmentDAO.getAllEnrollments());
-        req.getRequestDispatcher("/WEB-INF/views/admin/enrollments.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/views/common/enrollments.jsp").forward(req, res);
     }
 }
 

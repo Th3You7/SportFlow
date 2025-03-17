@@ -11,22 +11,20 @@
   <component name="ChangeListManager">
     <list default="true" id="6a1c73bf-7cdb-488d-be02-7cef07313f9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/entity/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/HelloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/EnrollmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/EnrollmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dto/TrainingSessionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dto/TrainingSessionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/mapper/TrainingSessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/mapper/TrainingSessionMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/enrollments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/enrollments.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/members.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/members.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/sessions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/sessions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/trainers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/trainers.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/aside.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/aside.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/user_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/user_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/EnrollmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/TrainingSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/TrainingSessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/enrollments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/enrollments.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/sessions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/sessions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/enrollments.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/sessions.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -86,6 +84,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\briefs\SportFlow\src\main\webapp\WEB-INF\views\common" />
       <recent name="C:\Users\pc\Desktop\briefs\SportFlow\conception" />
     </key>
   </component>
@@ -224,7 +223,7 @@
       <workItem from="1741695444980" duration="5987000" />
       <workItem from="1741947730832" duration="42682000" />
       <workItem from="1742154527337" duration="13718000" />
-      <workItem from="1742206026739" duration="4516000" />
+      <workItem from="1742206026739" duration="18465000" />
     </task>
     <servers />
   </component>
@@ -240,11 +239,11 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/sessions.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/sessions.jsp</url>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/enrollments.jsp</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/enrollments.jsp</url>
           <line>19</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
@@ -252,6 +251,16 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/form.jsp</url>
           <line>29</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/form.jsp</url>
+          <line>14</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/service/AdminService.java</url>
@@ -261,6 +270,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/service/TrainerService.java</url>
+          <line>23</line>
+          <properties class="app.com.sportflow.service.TrainerService" method="getDashboard">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/service/UserService.java</url>

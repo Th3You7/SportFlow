@@ -2,6 +2,7 @@ package app.com.sportflow.dao;
 
 import app.com.sportflow.config.HibernateConfig;
 import app.com.sportflow.dto.TrainingSessionDTO;
+import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.entity.TrainingSession;
 import app.com.sportflow.mapper.TrainingSessionMapper;
 import org.hibernate.Session;
@@ -12,7 +13,13 @@ import java.util.stream.Collectors;
 
 public class TrainingSessionDAO {
 
-    public TrainingSession getSession (long id) {
+    public TrainingSessionDTO getSession (long id) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()) {
+            return TrainingSessionMapper.toTrainingSessionDTO(session.get(TrainingSession.class, id));
+        }
+    }
+
+     public TrainingSession getSessionById (long id) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()) {
             return session.get(TrainingSession.class, id);
         }
@@ -55,6 +62,24 @@ public class TrainingSessionDAO {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("SELECT count(s) from TrainingSession s", Long.class)
                     .uniqueResult();
+        }
+    }
+
+    public long getSessionsCountByTrainer(long trainerId) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.createQuery("SELECT count(id) from TrainingSession where trainer.userId = :trainerID", Long.class)
+                    .setParameter("trainerID", trainerId)
+                    .uniqueResult();
+        }
+    }
+
+    public Set<TrainingSessionDTO> getSessionsByTrainerId(long trainerID) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()) {
+            return session.createQuery("from TrainingSession where trainer.userId = :trainerId", TrainingSession.class)
+                    .setParameter("trainerId", trainerID)
+                    .getResultStream()
+                    .map(TrainingSessionMapper::toTrainingSessionDTO)
+                    .collect(Collectors.toSet());
         }
     }
 

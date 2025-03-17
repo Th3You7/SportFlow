@@ -1,5 +1,6 @@
 package app.com.sportflow.dto;
 
+import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.enums.ClubDomain;
 
 import java.time.LocalDate;
@@ -10,26 +11,26 @@ public class TrainingSessionDTO {
     private String sessionName;
     private String sessionDescription;
     private ClubDomain sessionDomain;
-    private long trainerId;
+    private UserDTO trainer;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public TrainingSessionDTO(long sessionId, String sessionName, String sessionDescription, ClubDomain sessionDomain, long trainerId, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public TrainingSessionDTO(long sessionId, String sessionName, String sessionDescription, ClubDomain sessionDomain, UserDTO trainer, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.sessionId = sessionId;
         this.sessionName = sessionName;
         this.sessionDescription = sessionDescription;
         this.sessionDomain = sessionDomain;
-        this.trainerId = trainerId;
+        this.trainer = trainer;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
 
     }
 
-    public TrainingSessionDTO(String sessionName, String sessionDescription, ClubDomain sessionDomain, long trainerId, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public TrainingSessionDTO(String sessionName, String sessionDescription, ClubDomain sessionDomain, UserDTO trainer, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.sessionName = sessionName;
         this.sessionDescription = sessionDescription;
         this.sessionDomain = sessionDomain;
-        this.trainerId = trainerId;
+        this.trainer = trainer;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
 
@@ -67,12 +68,12 @@ public class TrainingSessionDTO {
         this.sessionDomain = sessionDomain;
     }
 
-    public long getTrainerId() {
-        return trainerId;
+    public UserDTO getTrainer() {
+        return trainer;
     }
 
-    public void setTrainerId(long trainerId) {
-        this.trainerId = trainerId;
+    public void setTrainer(UserDTO trainer) {
+        this.trainer = trainer;
     }
 
     public LocalDateTime getCreatedAt() {
