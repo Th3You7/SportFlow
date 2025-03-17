@@ -3,6 +3,7 @@ package app.com.sportflow.dao;
 import app.com.sportflow.config.HibernateConfig;
 import app.com.sportflow.dto.EnrollmentDTO;
 import app.com.sportflow.entity.Enrollment;
+import app.com.sportflow.enums.EnrollmentStatus;
 import app.com.sportflow.mapper.EnrollmentMapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -56,6 +57,19 @@ public class EnrollmentDAO {
                     .uniqueResult();
         }
     }
+
+    public Set<EnrollmentDTO> getEnrollmentsByMember(long memberId, EnrollmentStatus status) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.createQuery("from Enrollment where member.id = :memberId and status != :status", Enrollment.class)
+                    .setParameter("memberId", memberId)
+                    .setParameter("status", status)
+                    .getResultStream()
+                    .map(EnrollmentMapper::toEnrollmentDTO)
+                    .collect(Collectors.toSet());
+        }
+    }
+
+
     public long getAllEnrollmentsCount() {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("select count(e) from Enrollment e", Long.class)
@@ -63,5 +77,13 @@ public class EnrollmentDAO {
         }
     }
 
-
+    public Set<EnrollmentDTO> getEnrollmentsByStatus(EnrollmentStatus status) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.createQuery("from Enrollment where status = :status", Enrollment.class)
+                    .setParameter("status", status)
+                    .getResultStream()
+                    .map(EnrollmentMapper::toEnrollmentDTO)
+                    .collect(Collectors.toSet());
+        }
+    }
 }

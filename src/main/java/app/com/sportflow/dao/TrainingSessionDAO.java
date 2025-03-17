@@ -4,6 +4,7 @@ import app.com.sportflow.config.HibernateConfig;
 import app.com.sportflow.dto.TrainingSessionDTO;
 import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.entity.TrainingSession;
+import app.com.sportflow.enums.EnrollmentStatus;
 import app.com.sportflow.mapper.TrainingSessionMapper;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -83,4 +84,24 @@ public class TrainingSessionDAO {
         }
     }
 
+    public Set<TrainingSessionDTO> getAllUnregisteredSessionsByMember(long memberId) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()) {
+            return session.createQuery("from TrainingSession s where not exists (from Enrollment e where  e.member.userId = :memberId and e.session.id = s.id)", TrainingSession.class)
+                    .setParameter("memberId", memberId)
+                    .getResultStream()
+                    .map(TrainingSessionMapper::toTrainingSessionDTO)
+                    .collect(Collectors.toSet());
+        }
+    }
+
+    public Set<TrainingSessionDTO> getAllRegisteredSessionsByMember(long memberId, EnrollmentStatus status) {
+        try(Session session = HibernateConfig.getSessionFactory().openSession()) {
+            return session.createQuery("from TrainingSession s where exists (from Enrollment e where  e.member.userId = :memberId and e.session.id = s.id and e.status != :status)", TrainingSession.class)
+                    .setParameter("memberId", memberId)
+                    .setParameter("status", status)
+                    .getResultStream()
+                    .map(TrainingSessionMapper::toTrainingSessionDTO)
+                    .collect(Collectors.toSet());
+        }
+    }
 }

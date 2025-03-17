@@ -72,6 +72,7 @@ bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700" r
                             </a>
                         </li>
                     </c:if>
+                    <c:if test="${sessionScope.user.role != 'MEMBER'}">
                     <li>
                         <a href="sessions.jsp" class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -80,6 +81,7 @@ bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700" r
                             Sessions
                         </a>
                     </li>
+                    </c:if>
                     <li>
                         <a href="enrollments.jsp" class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:text-neutral-200">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

@@ -11,20 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6a1c73bf-7cdb-488d-be02-7cef07313f9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/controller/UserController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/EnrollmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/EnrollmentDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dto/TrainingSessionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dto/TrainingSessionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/mapper/TrainingSessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/mapper/TrainingSessionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/TrainingSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/TrainingSessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/enrollments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/enrollments.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/sessions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/sessions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/enrollments.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/trainer/sessions.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/aside.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/aside.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/enrollments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/enrollments.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +27,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -223,7 +215,7 @@
       <workItem from="1741695444980" duration="5987000" />
       <workItem from="1741947730832" duration="42682000" />
       <workItem from="1742154527337" duration="13718000" />
-      <workItem from="1742206026739" duration="18465000" />
+      <workItem from="1742206026739" duration="26363000" />
     </task>
     <servers />
   </component>
@@ -254,13 +246,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java</url>
-          <line>52</line>
+          <line>53</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/form.jsp</url>
           <line>14</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/service/MemberService.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/service/AdminService.java</url>
@@ -279,6 +276,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java</url>
+          <line>96</line>
+          <properties class="app.com.sportflow.dao.TrainingSessionDAO" method="getAllRegisteredSessionsByMember">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/app/com/sportflow/service/UserService.java</url>
