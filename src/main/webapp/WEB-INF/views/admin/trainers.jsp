@@ -18,7 +18,7 @@
     <div class="flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900 mb-6">Trainers List</h1>
         <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
-            <a href="/user-form?type=TRAINER" >
+            <a href="add-form.jsp?type=TRAINER" >
                 Add Trainer
             </a>
         </button>

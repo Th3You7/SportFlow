@@ -14,6 +14,8 @@
     <script async defer src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-50">
+<%@ include file="../components/aside.jsp" %>
+<div class="ml-[300px] mr-[16px] my-[16px]">
 <div class="bg-white rounded-lg shadow mb-8">
     <div class="px-6 py-4 border-b border-gray-200">
         <h2 class="text-lg font-semibold text-gray-900">Enrollments List</h2>
@@ -37,23 +39,20 @@
             <c:forEach var="enrollment" items="${requestScope.enrollments}" >
                 <tr  class="hover:bg-gray-50 transition-colors">
                     <!-- Offer Id -->
-                    <td class="px-6 py-4 whitespace-nowrap"><c:out value="${enrollment.id}" /></td>
+                    <td class="px-6 py-4 whitespace-nowrap"><c:out value="${enrollment.enrollmentId}" /></td>
                     <!-- Trainer -->
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-500"><c:out value="${enrollment.session.trainer.firstName} ${enrollment.session.trainer.lastName}" /></div>
+                        <div class="text-sm text-gray-500"><c:out value="${enrollment.trainingSession.trainer.firstName} ${enrollment.trainingSession.trainer.lastName}" /></div>
                     </td>
                     <!-- Domain -->
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-500"><c:out value="${enrollment.domain}" /></div>
+                        <div class="text-sm text-gray-500"><c:out value="${enrollment.trainingSession.sessionDomain}" /></div>
                     </td>
                     <!-- Status -->
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-500"><c:out value="${enrollment.status}" /></div>
+                        <div class="text-sm text-gray-500"><c:out value="${enrollment.enrollmentStatus}" /></div>
                     </td>
-                    <!--Created by-->
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-500"><c:out value="${enrollment.createdBy.firstName} ${enrollment.createdBy.lastName}" /></div>
-                    </td>
+
                     <!-- Created at-->
                     <td class="px-6 py-4 whitespace-nowrap">
                       <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -62,14 +61,14 @@
                     </td>
                     <!-- Actions-->
                     <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                        <a href="/enrollment/accept?id=<c:out value="${enrollment.userId}" />">Delete</a>
-                        <a class="ml-3" href=/enrollment/cancel?id=<c:out value="${enrollment.userId}" />">Edit</a>
+                        <a class="ml-3" href="cancel?enrollmentId=<c:out value="${enrollment.enrollmentId}" />">Cancel</a>
                     </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
+</div>
 </div>
 </body>
 </html>

@@ -10,7 +10,6 @@
 <head>
     <title>Register</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
 </head>
 <body>
 <!--
@@ -27,7 +26,7 @@ This example requires updating your template:
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="/auth/register" method="POST" enctype="multipart/form-data">
+        <form class="space-y-6" action="/auth/register" method="POST">
             <div class="flex gap-2 items-center">
                 <div>
                     <label for="fname" class="block text-sm/6 font-medium text-gray-900">First Name</label>
@@ -70,7 +69,7 @@ This example requires updating your template:
 
         <p class="mt-10 text-center text-sm/6 text-gray-500">
             already have an account?
-            <a href="/login-form" class="font-semibold text-indigo-600 hover:text-indigo-500">Try to login</a>
+            <a href="login.jsp" class="font-semibold text-indigo-600 hover:text-indigo-500">Try to login</a>
         </p>
     </div>
 </div>

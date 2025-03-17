@@ -17,7 +17,7 @@ public class User {
     private String email;
     private String password;
     private LocalDate birthDate;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public User() {}
@@ -70,11 +70,11 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public LocalDate getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 

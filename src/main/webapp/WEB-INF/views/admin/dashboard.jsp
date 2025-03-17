@@ -28,7 +28,7 @@
                 </div>
             </div>
             <h3 class="text-sm font-medium text-gray-500">Trainers</h3>
-            <p class="text-2xl font-semibold text-gray-900 mt-1"><c:out value="${requestScope.trainerCount}" /></p>
+            <p class="text-2xl font-semibold text-gray-900 mt-1"><c:out value="${requestScope.trainersCount}" /></p>
         </div>
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center justify-between mb-4">
@@ -51,7 +51,7 @@
 
             </div>
             <h3 class="text-sm font-medium text-gray-500">Offers</h3>
-            <p class="text-2xl font-semibold text-gray-900 mt-1"><c:out value="${requestScope.trainingSessionsCount}" /></p>
+            <p class="text-2xl font-semibold text-gray-900 mt-1"><c:out value="${requestScope.sessionsCount}" /></p>
         </div>
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center justify-between mb-4">

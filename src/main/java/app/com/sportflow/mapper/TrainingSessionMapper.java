@@ -7,7 +7,7 @@ import app.com.sportflow.entity.TrainingSession;
 public class TrainingSessionMapper {
     public static TrainingSession toTrainingSessionEntity(TrainingSessionDTO trainingSessionDTO) {
         TrainingSessionDAO trainingSessionDAO = new TrainingSessionDAO();
-        return trainingSessionDAO.getSession(trainingSessionDTO.getSessionId());
+        return trainingSessionDAO.getSessionById(trainingSessionDTO.getSessionId());
     }
 
     public static TrainingSessionDTO toTrainingSessionDTO(TrainingSession trainingSession) {
@@ -16,7 +16,7 @@ public class TrainingSessionMapper {
                 trainingSession.getSessionName(),
                 trainingSession.getSessionDescription(),
                 trainingSession.getDomain(),
-                trainingSession.getTrainer().getUserId(),
+                UserMapper.toUserDTO(trainingSession.getTrainer()),
                 trainingSession.getCreatedAt(),
                 trainingSession.getUpdatedAt()
 
