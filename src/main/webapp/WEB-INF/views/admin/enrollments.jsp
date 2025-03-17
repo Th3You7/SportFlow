@@ -13,11 +13,14 @@
     <script async defer src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-50">
-<div class="bg-white rounded-lg shadow mb-8">
-    <div class="px-6 py-4 border-b border-gray-200">
-        <h2 class="text-lg font-semibold text-gray-900">Enrollments List</h2>
-    </div>
-    <div class="overflow-x-auto">
+<%@ include file="../components/aside.jsp" %>
+<div class="ml-[300px] mr-[16px] my-[16px]">
+    <h1 class="text-2xl font-bold text-gray-900 mb-6">Enrollments</h1>
+    <div class="bg-white rounded-lg shadow mb-8">
+        <div class="px-6 py-4 border-b border-gray-200">
+            <h2 class="text-lg font-semibold text-gray-900">Enrollments List</h2>
+        </div>
+        <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
             <tr>
@@ -66,6 +69,7 @@
             </c:forEach>
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 </body>

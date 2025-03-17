@@ -2,6 +2,7 @@ package app.com.sportflow.service;
 
 import app.com.sportflow.dao.UserDAO;
 import app.com.sportflow.dto.UserDTO;
+import app.com.sportflow.entity.Admin;
 import app.com.sportflow.entity.Member;
 import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.entity.User;
@@ -28,7 +29,7 @@ public class UserService {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        User user = new Member();
+        User user = new Admin();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
@@ -67,10 +68,17 @@ public class UserService {
                 session.setAttribute("type", "error");
                 response.sendRedirect("/auth/login.jsp");
             }else{
-                if(userDTO.getRole().equals(UserRole.MEMBER)) {
-                    response.sendRedirect( "/user/home.jsp");
-                }else {
-                    response.sendRedirect( "/user/dashboard.jsp");
+                session.setAttribute("user", userDTO);
+                switch (userDTO.getRole()) {
+                    case ADMIN:
+                        response.sendRedirect( "/admin/dashboard.jsp");
+                        break;
+                    case MEMBER:
+                        response.sendRedirect( "/member/home.jsp");
+                        break;
+                    case TRAINER:
+                        response.sendRedirect( "/trainer/dashboard.jsp");
+                        break;
                 }
             }
 
@@ -137,29 +145,7 @@ public class UserService {
             res.sendRedirect("/admin/trainers"); // !! set redirection
         }
     }
-    public void addTrainer(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        Trainer trainer = new Trainer();
-        HttpSession session = req.getSession();
-        trainer.setFirstName(req.getParameter("firstName"));
-        trainer.setLastName(req.getParameter("lastName"));
-        trainer.setEmail(req.getParameter("email"));
-        trainer.setPassword("12345"); // default password
-        trainer.setBirthDate(LocalDate.parse(req.getParameter("birthDate")));
-        trainer.setCreatedAt(LocalDateTime.now());
-        trainer.setUpdatedAt(LocalDateTime.now());
-        try {
-            userDAO.saveUser(trainer);
-            session.setAttribute("message", "Trainer created successfully");
-            session.setAttribute("type", "success");
-        }catch (DuplicateEmailException e){
-            session.setAttribute("message", e.getMessage());
-            session.setAttribute("type", "error");
-        }catch (Exception e){
-            session.setAttribute("message", "Something went wrong");
-            session.setAttribute("type", "success");
-        }finally {
-            res.sendRedirect("/admin/trainers");
-        }
-    }
+
+
 
 }

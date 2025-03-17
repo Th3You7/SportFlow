@@ -60,10 +60,10 @@ public class UserDAO {
         }
     }
 
-    public void updateUser(User user) {
+    public void updateUser(User user, boolean isTheSameEmail) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction tx = session.beginTransaction();
-            if(isEmailExist(session, user.getEmail())) {
+            if(isEmailExist(session, user.getEmail()) && !isTheSameEmail) {
                 tx.rollback();
                 throw new DuplicateEmailException("Email " + user.getEmail() + " already exists");
             }

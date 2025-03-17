@@ -1,5 +1,6 @@
 package app.com.sportflow.controller;
 
+import app.com.sportflow.service.AdminService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,22 +11,4 @@ import java.io.IOException;
 
 @WebServlet("/user")
 public class UserController extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getPathInfo();
-
-        switch (action) {
-            case "/":
-
-        }
-
-
-    }
-
-
 }
