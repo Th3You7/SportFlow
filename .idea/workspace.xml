@@ -11,12 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6a1c73bf-7cdb-488d-be02-7cef07313f9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/EnrollmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/EnrollmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/dao/TrainingSessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/com/sportflow/service/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/aside.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/components/aside.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/enrollments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/enrollments.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,21 +53,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Smart Tomcat.SportFlow.executor&quot;: &quot;Run&quot;,
-    &quot;Tomcat Server.Tomcat 11.0.2.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;controllers&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Smart Tomcat.SportFlow.executor": "Run",
+    "Tomcat Server.Tomcat 11.0.2.executor": "Run",
+    "git-widget-placeholder": "filters",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Desktop\briefs\SportFlow\src\main\webapp\WEB-INF\views\common" />
@@ -216,6 +210,7 @@
       <workItem from="1741947730832" duration="42682000" />
       <workItem from="1742154527337" duration="13718000" />
       <workItem from="1742206026739" duration="26363000" />
+      <workItem from="1742258895898" duration="1164000" />
     </task>
     <servers />
   </component>
