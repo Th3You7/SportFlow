@@ -174,7 +174,7 @@ public class AdminService {
 
     // Sessions func
     public void getAllTrainingSessions(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.setAttribute("trainingSessions", trainingSessionDAO.getAllSessionsCount());
+        req.setAttribute("sessions", trainingSessionDAO.getAllSessions());
         req.getRequestDispatcher("/WEB-INF/views/common/sessions.jsp").forward(req, res);
     }
 

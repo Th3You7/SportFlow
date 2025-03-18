@@ -4,9 +4,11 @@ import app.com.sportflow.dao.EnrollmentDAO;
 import app.com.sportflow.dao.TrainingSessionDAO;
 import app.com.sportflow.dto.TrainingSessionDTO;
 import app.com.sportflow.dto.UserDTO;
+import app.com.sportflow.entity.Enrollment;
 import app.com.sportflow.entity.Trainer;
 import app.com.sportflow.entity.TrainingSession;
 import app.com.sportflow.enums.ClubDomain;
+import app.com.sportflow.enums.EnrollmentStatus;
 import app.com.sportflow.mapper.UserMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -49,7 +51,7 @@ public class TrainerService {
     public void listEnrollments(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         try {
             UserDTO user = (UserDTO) req.getSession(false).getAttribute("user");
-            req.setAttribute("sessions", trainingSessionDAO.getSessionsByTrainerId(user.getUserId()));
+            req.setAttribute("enrollments", enrollmentDAO.getEnrollmentsByTrainer(user.getUserId()));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }finally {
@@ -135,13 +137,56 @@ public class TrainerService {
 
     public void deleteSession(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         long sessionId = Long.parseLong(req.getParameter("sessionId"));
+        HttpSession session = req.getSession(false);
 
         try {
-            TrainingSession session = trainingSessionDAO.getSessionById(sessionId);
-            trainingSessionDAO.deleteSession(session);
+            TrainingSession trainingSession = trainingSessionDAO.getSessionById(sessionId);
+            trainingSessionDAO.deleteSession(trainingSession);
+            session.setAttribute("message", "Session deleted successfully");
+            session.setAttribute("type", "success");
         }catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            session.setAttribute("message", "Something went wrong");
+            session.setAttribute("type", "error");
+        }finally {
+            res.sendRedirect("sessions.jsp");
         }
     }
 
+    public void accept(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        long trainingSessionId = Long.parseLong(req.getParameter("enrollmentId"));
+        HttpSession session = req.getSession(false);
+        try {
+            Enrollment enrollment = enrollmentDAO.getEnrollment(trainingSessionId);
+            if (enrollment != null) {
+                enrollment.setStatus(EnrollmentStatus.ACTIVE);
+                enrollmentDAO.updateEnrollment(enrollment);
+                session.setAttribute("message", "You have accepted an enrollment successfully");
+                session.setAttribute("type", "success");
+            }
+        }catch(Exception e) {
+            session.setAttribute("message", "Something went wrong");
+            session.setAttribute("type", "error");
+        }finally {
+            res.sendRedirect("enrollments.jsp");
+        }
+    }
+
+    public void cancel(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        long trainingSessionId = Long.parseLong(req.getParameter("enrollmentId"));
+        HttpSession session = req.getSession(false);
+        try {
+            Enrollment enrollment = enrollmentDAO.getEnrollment(trainingSessionId);
+            if (enrollment != null) {
+                enrollment.setStatus(EnrollmentStatus.CANCELLED);
+                enrollmentDAO.updateEnrollment(enrollment);
+                session.setAttribute("message", "You have accepted an enrollment successfully");
+                session.setAttribute("type", "success");
+            }
+        }catch(Exception e) {
+            session.setAttribute("message", "Something went wrong");
+            session.setAttribute("type", "error");
+        }finally {
+            res.sendRedirect("enrollments.jsp");
+        }
+    }
 }

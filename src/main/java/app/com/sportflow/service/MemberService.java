@@ -53,7 +53,7 @@ public class MemberService {
             session.setAttribute("message", "Something went wrong");
             session.setAttribute("type", "error");
         }finally {
-            res.sendRedirect("sessions.jsp");
+            res.sendRedirect("enrollments.jsp");
         }
     }
     public void cancel(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -82,7 +82,7 @@ public class MemberService {
         }catch (Exception e) {
             System.out.println("Error: " + e);
         }finally {
-            req.getRequestDispatcher("/WEB-INF/views/member/enrollments.jsp").forward(req, res);
+            req.getRequestDispatcher("/WEB-INF/views/common/enrollments.jsp").forward(req, res);
         }
     }
 }

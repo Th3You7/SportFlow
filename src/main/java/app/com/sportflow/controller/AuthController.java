@@ -33,6 +33,9 @@ public class AuthController extends HttpServlet {
             case "/register":
                 userService.register(req, resp);
                 break;
+            case "/logout":
+                userService.logout(req, resp);
+                break;
             default:
                 resp.sendRedirect("login.jsp");
         }

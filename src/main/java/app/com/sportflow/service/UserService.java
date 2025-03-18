@@ -100,9 +100,9 @@ public class UserService {
     public void logout(HttpServletRequest request, HttpServletResponse response) {
 
         try {
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession(false);
             session.invalidate();
-            response.sendRedirect("/");
+            response.sendRedirect("login.jsp");
         } catch (Exception e) {
             System.out.println(e);
         }

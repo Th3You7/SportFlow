@@ -58,6 +58,8 @@ public class EnrollmentDAO {
         }
     }
 
+
+
     public Set<EnrollmentDTO> getEnrollmentsByMember(long memberId, EnrollmentStatus status) {
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             return session.createQuery("from Enrollment where member.id = :memberId and status != :status", Enrollment.class)
