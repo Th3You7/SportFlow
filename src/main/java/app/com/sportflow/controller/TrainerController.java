@@ -54,6 +54,14 @@ public class TrainerController extends HttpServlet {
                 trainerService.deleteSession(req, resp);
                 break;
 
+            case "/accept":
+                trainerService.accept(req, resp);
+                break;
+
+            case "/cancel":
+                trainerService.cancel(req, resp);
+                break;
+
             default:
                 resp.sendRedirect("/trainer/dashboard.jsp");
 

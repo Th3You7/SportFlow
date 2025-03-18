@@ -6,6 +6,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -16,24 +17,25 @@ public class TrainerFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        UserDTO userDTO = (UserDTO) request.getSession(false).getAttribute("user");
+        HttpSession session = request.getSession(false);
 
-        if (userDTO == null) {
+        if (session == null || session.getAttribute("user") == null) {
             response.sendRedirect("/auth/login.jsp");
-        }
+        } else {
+            UserDTO userDTO = (UserDTO) session.getAttribute("user");
+            switch (userDTO.getRole()) {
+                case ADMIN:
+                    response.sendRedirect("/admin/dashboard.jsp");
+                    break;
 
-        switch (userDTO.getRole()) {
-            case ADMIN:
-                response.sendRedirect("/admin/dashboard.jsp");
-                break;
+                case TRAINER:
+                    chain.doFilter(request, response);
+                    break;
 
-            case TRAINER:
-                chain.doFilter(request, response);
-                break;
-
-            case MEMBER:
-                response.sendRedirect("/member/home.jsp");
-                break;
+                case MEMBER:
+                    response.sendRedirect("/member/home.jsp");
+                    break;
+            }
         }
     }
 }

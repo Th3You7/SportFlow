@@ -81,10 +81,13 @@
                       </span>
                     </td>
                     <!-- acttions -->
-                    <td>
-                        <a href="delete-session?id=<c:out value="${session.sessionId}" />">Delete</a>
-                        <a class="ml-3" href="edit-form.jsp?sessionId=<c:out value="${session.sessionId}" />">Edit</a>
-                    </td>
+                    <c:if test="${sessionScope.user.role != 'ADMIN'}">
+                        <td>
+                            <a href="delete-session?sessionId=<c:out value="${session.sessionId}" />">Delete</a>
+                            <a class="ml-3" href="edit-form.jsp?sessionId=<c:out value="${session.sessionId}" />">Edit</a>
+                        </td>
+                    </c:if>
+
                 </tr>
             </c:forEach>
             </tbody>
